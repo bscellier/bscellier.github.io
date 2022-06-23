@@ -1,5 +1,6 @@
-<!-- saved from url=(0041)https://people.eecs.berkeley.edu/~barron/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<html>
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
   <style type="text/css">
@@ -67,6 +68,10 @@
   </style>  
 
 <title>Benjamin Scellier</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
   <link href="./_files/css" rel="stylesheet" type="text/css">
   <style id="dark-reader-style" type="text/css">@media screen {
 
@@ -130,71 +135,51 @@ html {
    }
 </script>
 
-
-
-
 </head>
-  <body><div id="StayFocusd-infobar" style="display: none; top: 2400px;">
-    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
-    <span id="StayFocusd-infobar-msg"></span>
-    <span id="StayFocusd-infobar-links">
-        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-        <a id="StayFocusd-infobar-hide">hide once</a>
-    </span>
-</div>
-  <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
-    <tbody><tr>
-    <td>
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <tbody><tr>
-        <td width="67%" valign="middle">
-        <p align="center">
-        <name>Benjamin Scellier</name><br>
-        benjamin dot scellier at polytechnique dot edu
-        </p>
-        <p>I am a postdoctoral researcher at the Department of Mathematics of ETH Zurich.
-        </p>
-        <p>Before that, I was a resident at <a href="https://x.company/">Google X</a> and Google Zurich.
-        </p>
-        <p>I completed my PhD at <a href="https://mila.quebec/en/">Mila (University of Montreal)</a> under the supervision of <a href="https://scholar.google.com/citations?user=kukA0LcAAAAJ&hl=en">Yoshua Bengio</a>.
-        </p>
 
-        <p align="center">
-<a href="https://scholar.google.com/citations?user=GWyeAskAAAAJ&hl=en">Google Scholar</a>
-        </p>
-        </td>
-        <td  width=250 height=250>
-        <img src="./img.jpg"  width=250 height=250>
-        </td>
-      </tr>
-  </tbody></table>
 
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <heading>News</heading>
-        <tbody><tr><td>
-            <ul>
-              <li> Equilibrium propagation is featured in <a href="https://www.quantamagazine.org/how-to-make-the-universe-think-for-us-20220531/"> Quanta Magazine</a></li>
-              <li> Our new paper: <a href="https://arxiv.org/abs/2205.15021">Agnostic physics-driven deep learning</a></li>
-              </div>
-            </ul>
-        </td></tr>
-     </tbody></table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <heading>About me</heading>
-        <tbody><tr><td>
-            <p>My main research interests lie at the interface of deep learning, physics and neuroscience. I am more particularly interested in the physics of computation and learning.
-            </p>
-            <p>I introduced with Yoshua Bengio a novel mathematical framework for gradient-descent-based machine learning that we called "<a href="eqprop/eqprop.html">equilibrium propagation</a>" (Eqprop). Compared to the more conventional framework relying on "automatic differentiation", the benefit of Eqprop is that inference and gradient computation within this framework are performed using the same physical laws. By suggesting a path to perform the desired computations (inference and learning) more efficiently, this framework may have implications for the design of novel hardware ("accelerators") for machine learning.
-            </p>
-            <p>
-            Chapter 2 of my <a href="https://arxiv.org/abs/2103.09985">PhD thesis</a> provides an overview of Eqprop.
-            </p>
-            <p>
-            See also our new paper on <a href="https://arxiv.org/abs/2205.15021">agnostic physics-driven deep learning</a>, where we introduce "Agostic Eqprop", a novel alternative to Eqprop that overcomes several of its limitations.
-            </p>
-        </td></tr>
-        </tbody>
-    </table>
-
-</body></html>
+    <body>
+        <div id="StayFocusd-infobar" style="display: none; top: 2400px;">
+        <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+        <span id="StayFocusd-infobar-msg"></span>
+        <span id="StayFocusd-infobar-links">
+            <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a id="StayFocusd-infobar-hide">hide once</a>
+        </span>
+        </div>
+            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <heading>Equilibrium Propagation Formula</heading>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>
+                            Let \(\theta\) be a parameter and \(C\) a cost function. Consider the problem of computing the gradient of the loss
+                            \begin{equation}
+                                {\mathcal L}(\theta) = C(s(\theta))
+                            \end{equation}
+                            under the constraint that \( s(\theta) \) minimizes some function \( E \),
+                            \begin{equation}
+                                s(\theta) = \underset{s}{\arg\min} \, E(\theta,s).
+                            \end{equation}
+                            The dea of equilibrium propagation (Eqprop) is to augment the function \(E\) by \( \beta C \), where \( \beta \in \mathbb{R} \). Assuming that the functions \( E \) and \( C \) are continuously differentiable, there exists a continuous mapping \( \beta \mapsto s_\star^\beta \) such that \( s_\star^0 = s(\theta) \) and
+                            \begin{equation}
+                                s_\star^\beta = \underset{s}{\arg\min} \left[ E(\theta,s) + \beta \, C(s) \right]
+                            \end{equation}
+                            for any \(\beta \in \mathbb{R}\). The Eqprop formula relates the gradient of the loss to the partial derivatives of the function \(E\):
+                            \begin{equation}
+                                \frac{\partial {\mathcal L}}{\partial \theta}(\theta) = \left. \frac{d}{d\beta} \right|_{\beta=0} \frac{\partial E}{\partial \theta} \left( \theta,s_\star^\beta \right).
+                            \end{equation}
+                            In this expression, \( \frac{\partial E}{\partial \theta} \) denotes the partial derivative of the function \( E(\theta,s) \) with respect to its first argument, and \( \left. \frac{d}{d\beta} \right|_{\beta=0} \) denotes the (total) derivative with respect to \( \beta \) at the point \( \beta=0 \).
+                        </p>
+                        <p>
+                            <a href="proof.html">Proof</a> of the Eqprop formula.
+                        </p>
+                        <p>
+                        As a consequence of this identity, the  <a href="eqprop.html">Eqprop algorithm</a> performs gradient descent on the loss.
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

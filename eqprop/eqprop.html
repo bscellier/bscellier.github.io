@@ -67,6 +67,10 @@
   </style>  
 
 <title>Benjamin Scellier</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
   <link href="./_files/css" rel="stylesheet" type="text/css">
   <style id="dark-reader-style" type="text/css">@media screen {
 
@@ -130,9 +134,6 @@ html {
    }
 </script>
 
-
-
-
 </head>
   <body><div id="StayFocusd-infobar" style="display: none; top: 2400px;">
     <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
@@ -142,59 +143,33 @@ html {
         <a id="StayFocusd-infobar-hide">hide once</a>
     </span>
 </div>
-  <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
-    <tbody><tr>
-    <td>
-      <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-      <tbody><tr>
-        <td width="67%" valign="middle">
-        <p align="center">
-        <name>Benjamin Scellier</name><br>
-        benjamin dot scellier at polytechnique dot edu
-        </p>
-        <p>I am a postdoctoral researcher at the Department of Mathematics of ETH Zurich.
-        </p>
-        <p>Before that, I was a resident at <a href="https://x.company/">Google X</a> and Google Zurich.
-        </p>
-        <p>I completed my PhD at <a href="https://mila.quebec/en/">Mila (University of Montreal)</a> under the supervision of <a href="https://scholar.google.com/citations?user=kukA0LcAAAAJ&hl=en">Yoshua Bengio</a>.
-        </p>
-
-        <p align="center">
-<a href="https://scholar.google.com/citations?user=GWyeAskAAAAJ&hl=en">Google Scholar</a>
-        </p>
-        </td>
-        <td  width=250 height=250>
-        <img src="./img.jpg"  width=250 height=250>
-        </td>
-      </tr>
-  </tbody></table>
-
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <heading>News</heading>
+        <heading>Equilibrium Propagation</heading>
         <tbody><tr><td>
-            <ul>
-              <li> Equilibrium propagation is featured in <a href="https://www.quantamagazine.org/how-to-make-the-universe-think-for-us-20220531/"> Quanta Magazine</a></li>
-              <li> Our new paper: <a href="https://arxiv.org/abs/2205.15021">Agnostic physics-driven deep learning</a></li>
-              </div>
-            </ul>
+            <p>Consider the prototypical machine learning setting where one wants to minimize an objective function
+                \[J(\theta) = \mathbb{E}_{(x,y)} \left[ C(s(\theta,x),y) \right]\]
+                with respect to some parameter \(\theta\). The variables \(x\) and \(y\) represent an input and its associated label, \(C\) is a cost function, and \(s(\theta,x)\) is a prediction with respect to \(y\), computed from \(\theta\) and \(x\). The expectation \( \mathbb{E}_{(x,y)} \) is taken over the distribution of input-output pairs \( (x,y) \) for the task that we want to solve.</p>
+            <p>In deep learning, the main tool for this optimization problem is stochastic gradient descent (SGD). Each step of SGD consists in choosing an input-output pair \( (x,y) \) at random from a training set of examples, and updating the parameters according to
+                \( \Delta \theta = -\eta \, \frac{\partial {\mathcal L}}{\partial \theta}(\theta,x,y) \),
+                where \( \eta>0 \) is the learning rate and
+                \[ {\mathcal L}(\theta,x,y) = C(s(\theta,x),y) \]
+                is the per-example loss function. For clarity, we distinguish the loss (\({\mathcal L}\)) from the objective (\(J\)) and the cost (\(C\)).</p>
+            <p>In the equilibrium propagation (Eqprop) framework, we assume that the quantity \( s(\theta,x) \) is obtained by a process of physical equilibration with respect to some energy function \( E \):
+                \[s(\theta,x) = \underset{s}{\arg\min} \, E(\theta,x,s).\]
+                Given \(\theta\) and \(x\), the energy \(E(\theta,x,s)\) is defined for any conceivable state \(s\), but the state that is physically realized is the equilibrium state \(s(\theta,x)\) minimizing \(E(\theta,x,\cdot)\).
+            </p>
+            <p>
+                The central idea of Eqprop is to act on the output part of the physical system so as to augment its energy function by \( \beta C \), where \( \beta \in \mathbb{R} \). The system then settles to a new equilibrium state
+                \[ s_\star^\beta = \underset{s}{\arg\min} \left[ E(\theta, x, s) + \beta C(s, y) \right]. \]
+                Note that with this notation we have \( s_\star^0 = s(\theta,x) \).
+                Next, one updates the parameters as
+                \[ \Delta \theta = - \alpha \left( \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^\beta\right) - \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^0\right) \right). \]
+                The main theoretical result of the Eqprop framework is that
+                \[ \Delta \theta = - \alpha \beta \frac{\partial {\mathcal L}}{\partial \theta}(\theta, x, y) + O(\beta^2), \]
+                i.e. the learning rule performs one step of SGD with learning rate \( \eta = \alpha \beta \), up to \(O(\beta^2)\).
+                This result is a consequence of the <a href="eqprop-formula.html">equilibrium propagation formula</a>.
+            </p>
         </td></tr>
      </tbody></table>
-
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <heading>About me</heading>
-        <tbody><tr><td>
-            <p>My main research interests lie at the interface of deep learning, physics and neuroscience. I am more particularly interested in the physics of computation and learning.
-            </p>
-            <p>I introduced with Yoshua Bengio a novel mathematical framework for gradient-descent-based machine learning that we called "<a href="eqprop/eqprop.html">equilibrium propagation</a>" (Eqprop). Compared to the more conventional framework relying on "automatic differentiation", the benefit of Eqprop is that inference and gradient computation within this framework are performed using the same physical laws. By suggesting a path to perform the desired computations (inference and learning) more efficiently, this framework may have implications for the design of novel hardware ("accelerators") for machine learning.
-            </p>
-            <p>
-            Chapter 2 of my <a href="https://arxiv.org/abs/2103.09985">PhD thesis</a> provides an overview of Eqprop.
-            </p>
-            <p>
-            See also our new paper on <a href="https://arxiv.org/abs/2205.15021">agnostic physics-driven deep learning</a>, where we introduce "Agostic Eqprop", a novel alternative to Eqprop that overcomes several of its limitations.
-            </p>
-        </td></tr>
-        </tbody>
-    </table>
 
 </body></html>
