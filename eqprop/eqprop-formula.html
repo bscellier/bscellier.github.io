@@ -153,15 +153,15 @@ html {
                 <tr>
                     <td>
                         <p>
-                            Let \(\theta\) be a parameter and \(C\) a cost function. Consider the problem of computing the gradient of the loss
+                            Let \(\theta\) and \(s\) be two variables, and let \(E(\theta,s)\) and \(C(s)\) be two scalar functions. Consider the problem of minimizing
                             \begin{equation}
-                                {\mathcal L}(\theta) = C(s(\theta))
+                                {\mathcal L}(\theta) := C(s(\theta))
                             \end{equation}
-                            under the constraint that \( s(\theta) \) minimizes some function \( E \),
+                            with respect to \(\theta\), under the constraint that
                             \begin{equation}
-                                s(\theta) = \underset{s}{\arg\min} \, E(\theta,s).
+                                s(\theta) := \underset{s}{\arg\min} \, E(\theta,s).
                             \end{equation}
-                            The dea of equilibrium propagation (Eqprop) is to augment the function \(E\) by \( \beta C \), where \( \beta \in \mathbb{R} \). Assuming that the functions \( E \) and \( C \) are continuously differentiable, there exists a continuous mapping \( \beta \mapsto s_\star^\beta \) such that \( s_\star^0 = s(\theta) \) and
+                            We wish to optimize \({\mathcal L}(\theta)\) by gradient descent. The equilibrium propagation (Eqprop) method achieves this by introducing a scalar parameter \( \beta \in \mathbb{R} \) to define a family of equilibrium states \(s_\star^\beta\) parameterized by \(\beta\). Assuming that the functions \( E \) and \( C \) are continuously differentiable, there exists a continuous mapping \( \beta \mapsto s_\star^\beta \) such that \( s_\star^0 = s(\theta) \) and
                             \begin{equation}
                                 s_\star^\beta = \underset{s}{\arg\min} \left[ E(\theta,s) + \beta \, C(s) \right]
                             \end{equation}
