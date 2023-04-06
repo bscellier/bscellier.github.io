@@ -65,3 +65,22 @@ span.highlight {
 .blue-link {
   color: #07889b;
 }
+
+/* Add responsiveness to the main table */
+.main-table {
+  width: 100%;
+  max-width: 800px;
+}
+
+@media (max-width: 800px) {
+  .main-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-table td {
+    display: block;
+    width: 100%;
+  }
+}
