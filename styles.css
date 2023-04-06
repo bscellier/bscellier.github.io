@@ -19,21 +19,13 @@ strong {
   font-size: 15px;
 }
 
+name {
+  font-size: 42px;
+}
+
 heading {
   font-size: 22px;
   color: #e37222;
-}
-
-heading2 {
-  font-size: 18px;
-}
-
-papertitle {
-  font-weight: 700;
-}
-
-name {
-  font-size: 42px;
 }
 
 li:not(:last-child) {
@@ -82,5 +74,17 @@ span.highlight {
   .main-table td {
     display: block;
     width: 100%;
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media (max-width: 800px) {
+  .container {
+    padding: 10px;
   }
 }
