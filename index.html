@@ -8,63 +8,37 @@
 </head>
 <body>
     <div class="container">
-        <tbody>
-            <tr>
-                <td>
-                    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-                        <tbody>
-                            <tr>
-                                <td width="67%" valign="middle">
-                                    <p align="center">
-                                        <name>Benjamin Scellier</name><br>
-                                        benjamin at rain dot ai
-                                        <!╌-benjamin dot scellier at polytechnique dot edu-->
-                                    </p>
-                                    <p>I am a principal research scientist at  <a href="https://rain.ai/" class="blue-link">Rain</a>.</p>
-                                    <p>Before that, I was a resident at <a href="https://x.company/" class="blue-link">Google X</a>, then a resident at Google Zurich, and then a postdoctoral researcher at the Department of Mathematics of ETH Zurich.</p>
-                                    <p>I completed my PhD at <a href="https://mila.quebec/en/" class="blue-link">Mila</a> (University of Montreal) under the supervision of <a href="https://yoshuabengio.org/" class="blue-link">Yoshua Bengio</a>.</p>
-                                    <p align="center">
-                                        <a href="https://scholar.google.com/citations?user=GWyeAskAAAAJ&hl=en" class="blue-link">Google Scholar</a>
-                                    </p>
-                                </td>
-                                <td width=200 height=200>
-                                    <img src="./img.jpg" width=200 height=200>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-                        <heading>News</heading>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <ul>
-                                      <li> Equilibrium propagation is featured in <a href="https://www.quantamagazine.org/how-to-make-the-universe-think-for-us-20220531/" class="blue-link"> Quanta Magazine</a></li>
-                                      <li> New preprint: <a href="https://arxiv.org/abs/2205.15021" class="blue-link">Agnostic physics-driven deep learning</a></li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-                        <heading>About me</heading>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p>My main research interests lie at the interface of deep learning, physics and neuroscience. I am more particularly interested in the physics of computation and learning.</p>
-                                    <p>I introduced with Yoshua Bengio a novel mathematical framework for gradient-descent-based machine learning that we called "<a href="https://www.frontiersin.org/articles/10.3389/fncom.2017.00024/full" class="blue-link">equilibrium propagation</a>" (Eqprop). Compared to the more conventional framework based on automatic differentiation (i.e. "backpropagation"), the benefit of the Eqprop framework is that inference and gradient computation are performed using the same physical laws. By suggesting a path to perform the desired computations (inference and learning) more efficiently, this framework may have implications for the design of novel hardware ("accelerators") for deep learning.</p>
-                                    <p>Many collaborators and other researchers have contributed to develop the Eqprop framework.
-                                    Chapter 2 of my <a href="https://papyrus.bib.umontreal.ca/xmlui/handle/1866/25593" class="blue-link">PhD thesis</a> provides a (relatively recent) overview. See also <a href="eqprop/eqprop.html" class="blue-link">these notes</a> on Eqprop.
-                                    <!╌-See also Agostic Eqprop (AEqprop), a novel physical learning algorithm that overcome several of the limitations of Eqprop.-->
-                                    </p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
+        <div class="header-section">
+            <div class="header-text">
+                <h1>Benjamin Scellier</h1>
+                <p>benjamin at rain dot ai</p>
+            </div>
+            <div class="header-image">
+                <img src="./img.jpg" alt="Profile Picture" width="200" height="200">
+            </div>
+        </div>
+        <div>
+            <p>I am a principal research scientist at  <a href="https://rain.ai/" class="blue-link">Rain</a>.</p>
+            <p>Before that, I was a resident at <a href="https://x.company/" class="blue-link">Google X</a>, then a resident at Google Zurich, and then a postdoctoral researcher at the Department of Mathematics of ETH Zurich.</p>
+            <p>I completed my PhD at <a href="https://mila.quebec/en/" class="blue-link">Mila</a> (University of Montreal) under the supervision of <a href="https://yoshuabengio.org/" class="blue-link">Yoshua Bengio</a>.</p>
+        </div>
+        <div align="center">
+            <a href="https://scholar.google.com/citations?user=GWyeAskAAAAJ&hl=en" class="blue-link">Google Scholar</a>
+        </div>
+        <div class="news-section">
+            <h2>News</h2>
+              <li> Equilibrium propagation is featured in <a href="https://www.quantamagazine.org/how-to-make-the-universe-think-for-us-20220531/" class="blue-link"> Quanta Magazine</a></li>
+              <li> New preprint: <a href="https://arxiv.org/abs/2205.15021" class="blue-link">Agnostic physics-driven deep learning</a></li>
+        </div>
+        <div class="about-section">
+            <h2>About me</h2>
+            <p>My main research interests lie at the interface of deep learning, physics and neuroscience. I am more particularly interested in the physics of computation and learning.</p>
+            <p>I introduced with Yoshua Bengio a novel mathematical framework for gradient-descent-based machine learning that we called "<a href="https://www.frontiersin.org/articles/10.3389/fncom.2017.00024/full" class="blue-link">equilibrium propagation</a>" (Eqprop). Compared to the more conventional framework based on automatic differentiation (i.e. "backpropagation"), the benefit of the Eqprop framework is that inference and gradient computation are performed using the same physical laws. By suggesting a path to perform the desired computations (inference and learning) more efficiently, this framework may have implications for the design of novel hardware ("accelerators") for deep learning.</p>
+            <p>Many collaborators and other researchers have contributed to develop the Eqprop framework.
+            Chapter 2 of my <a href="https://papyrus.bib.umontreal.ca/xmlui/handle/1866/25593" class="blue-link">PhD thesis</a> provides a (relatively recent) overview. See also <a href="eqprop/eqprop.html" class="blue-link">these notes</a> on Eqprop.
+            <!╌-See also Agostic Eqprop (AEqprop), a novel physical learning algorithm that overcome several of the limitations of Eqprop.-->
+            </p>
+        </div>
     </div>
 </body>
 </html>
