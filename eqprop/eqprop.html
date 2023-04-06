@@ -10,37 +10,33 @@
   </script>
 </head>
 <body>
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <heading>Equilibrium Propagation</heading>
-    <tbody>
-      <tr>
-        <td>
-            <p>Consider the prototypical machine learning setting where one wants to minimize an objective function
-                \[J(\theta) = \mathbb{E}_{(x,y)} \left[ C(s(\theta,x),y) \right]\]
-                with respect to some parameter \(\theta\). The variables \(x\) and \(y\) represent an input and its associated label, \(C\) is a cost function, and \(s(\theta,x)\) is a prediction with respect to \(y\), computed from \(\theta\) and \(x\). The expectation \( \mathbb{E}_{(x,y)} \) is taken over the distribution of input-output pairs \( (x,y) \) for the task that we want to solve.</p>
-            <p>In deep learning, the main tool for this optimization problem is stochastic gradient descent (SGD). Each step of SGD consists in choosing an input-output pair \( (x,y) \) at random from a training set of examples, and updating the parameters according to
-                \( \Delta \theta = -\eta \, \frac{\partial {\mathcal L}}{\partial \theta}(\theta,x,y) \),
-                where \( \eta>0 \) is the learning rate and
-                \[ {\mathcal L}(\theta,x,y) = C(s(\theta,x),y) \]
-                is the per-example loss function. For clarity, we distinguish the loss (\({\mathcal L}\)) from the objective (\(J\)) and the cost (\(C\)).</p>
-            <p>In the equilibrium propagation (Eqprop) framework, we assume that the quantity \( s(\theta,x) \) is obtained by a process of physical equilibration with respect to some energy function \( E \):
-                \[s(\theta,x) = \underset{s}{\arg\min} \, E(\theta,x,s).\]
-                Given \(\theta\) and \(x\), the energy \(E(\theta,x,s)\) is defined for any conceivable state \(s\), but the state that is physically realized is the equilibrium state \(s(\theta,x)\) minimizing \(E(\theta,x,\cdot)\).
-            </p>
-            <p>
-                The central idea of Eqprop is to act on the output part of the physical system so as to augment its energy function by \( \beta C \), where \( \beta \in \mathbb{R} \). The system then settles to a new equilibrium state
-                \[ s_\star^\beta = \underset{s}{\arg\min} \left[ E(\theta, x, s) + \beta C(s, y) \right]. \]
-                Note that with this notation we have \( s_\star^0 = s(\theta,x) \).
-                Next, one updates the parameters as
-                \[ \Delta \theta = - \alpha \left( \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^\beta\right) - \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^0\right) \right). \]
-                The main theoretical result of the Eqprop framework is that
-                \[ \Delta \theta = - \alpha \beta \frac{\partial {\mathcal L}}{\partial \theta}(\theta, x, y) + O(\beta^2), \]
-                i.e. the above learning rule performs one step of SGD with learning rate \( \eta = \alpha \beta \), up to \(O(\beta^2)\).
-                This result is a consequence of the <a href="eqprop-formula.html" class="blue-link">equilibrium propagation formula</a>.
-            </p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container">
+    <div class="content-section">
+      <h1 align="center">Equilibrium Propagation</h1>
+        <p>Consider the prototypical machine learning setting where one wants to minimize an objective function
+            \[J(\theta) = \mathbb{E}_{(x,y)} \left[ C(s(\theta,x),y) \right]\]
+            with respect to some parameter \(\theta\). The variables \(x\) and \(y\) represent an input and its associated label, \(C\) is a cost function, and \(s(\theta,x)\) is a prediction with respect to \(y\), computed from \(\theta\) and \(x\). The expectation \( \mathbb{E}_{(x,y)} \) is taken over the distribution of input-output pairs \( (x,y) \) for the task that we want to solve.</p>
+        <p>In deep learning, the main tool for this optimization problem is stochastic gradient descent (SGD). Each step of SGD consists in choosing an input-output pair \( (x,y) \) at random from a training set of examples, and updating the parameters according to
+            \( \Delta \theta = -\eta \, \frac{\partial {\mathcal L}}{\partial \theta}(\theta,x,y) \),
+            where \( \eta>0 \) is the learning rate and
+            \[ {\mathcal L}(\theta,x,y) = C(s(\theta,x),y) \]
+            is the per-example loss function. For clarity, we distinguish the loss (\({\mathcal L}\)) from the objective (\(J\)) and the cost (\(C\)).</p>
+        <p>In the equilibrium propagation (Eqprop) framework, we assume that the quantity \( s(\theta,x) \) is obtained by a process of physical equilibration with respect to some energy function \( E \):
+            \[s(\theta,x) = \underset{s}{\arg\min} \, E(\theta,x,s).\]
+            Given \(\theta\) and \(x\), the energy \(E(\theta,x,s)\) is defined for any conceivable state \(s\), but the state that is physically realized is the equilibrium state \(s(\theta,x)\) minimizing \(E(\theta,x,\cdot)\).
+        </p>
+        <p>
+            The central idea of Eqprop is to act on the output part of the physical system so as to augment its energy function by \( \beta C \), where \( \beta \in \mathbb{R} \). The system then settles to a new equilibrium state
+            \[ s_\star^\beta = \underset{s}{\arg\min} \left[ E(\theta, x, s) + \beta C(s, y) \right]. \]
+            Note that with this notation we have \( s_\star^0 = s(\theta,x) \).
+            Next, one updates the parameters as
+            \[ \Delta \theta = - \alpha \left( \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^\beta\right) - \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^0\right) \right). \]
+            The main theoretical result of the Eqprop framework is that
+            \[ \Delta \theta = - \alpha \beta \frac{\partial {\mathcal L}}{\partial \theta}(\theta, x, y) + O(\beta^2), \]
+            i.e. the above learning rule performs one step of SGD with learning rate \( \eta = \alpha \beta \), up to \(O(\beta^2)\).
+            This result is a consequence of the <a href="eqprop-formula.html" class="blue-link">equilibrium propagation formula</a>.
+        </p>
+    </div>
+  </div>
 </body>
 </html>

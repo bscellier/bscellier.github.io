@@ -10,35 +10,31 @@
   </script>
 </head>
 <body>
-  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-    <heading>Equilibrium Propagation Formula</heading>
-    <tbody>
-      <tr>
-        <td>
-            <p>
-                Let \(\theta\) and \(s\) be two variables, and let \(E(\theta,s)\) and \(C(s)\) be two scalar functions. Consider the problem of minimizing
-                \begin{equation}
-                    {\mathcal L}(\theta) := C(s(\theta))
-                \end{equation}
-                with respect to \(\theta\), under the constraint that
-                \begin{equation}
-                    s(\theta) := \underset{s}{\arg\min} \, E(\theta,s).
-                \end{equation}
-                We wish to optimize \({\mathcal L}(\theta)\) by gradient descent. The equilibrium propagation (Eqprop) method achieves this by introducing a scalar parameter \( \beta \in \mathbb{R} \) to define a family of equilibrium states \(s_\star^\beta\) parameterized by \(\beta\). Assuming that the functions \( E \) and \( C \) are continuously differentiable, there exists a continuous mapping \( \beta \mapsto s_\star^\beta \) such that \( s_\star^0 = s(\theta) \) and
-                \begin{equation}
-                    s_\star^\beta = \underset{s}{\arg\min} \left[ E(\theta,s) + \beta \, C(s) \right]
-                \end{equation}
-                for any \(\beta \in \mathbb{R}\). The Eqprop formula relates the gradient of the loss to the partial derivatives of the function \(E\):
-                \begin{equation}
-                    \frac{\partial {\mathcal L}}{\partial \theta}(\theta) = \left. \frac{d}{d\beta} \right|_{\beta=0} \frac{\partial E}{\partial \theta} \left( \theta,s_\star^\beta \right).
-                \end{equation}
-                In this expression, \( \frac{\partial E}{\partial \theta} \) denotes the partial derivative of the function \( E(\theta,s) \) with respect to its first argument, and \( \left. \frac{d}{d\beta} \right|_{\beta=0} \) denotes the (total) derivative with respect to \( \beta \) at the point \( \beta=0 \).
-            </p>
-            <p><a href="proof.html" class="blue-link">Proof</a> of the Eqprop formula.</p>
-            <p>As a consequence of this identity, the  <a href="eqprop.html" class="blue-link">Eqprop algorithm</a> performs gradient descent on the loss.</p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container">
+    <div class="content-section">
+      <h1 align="center">Equilibrium Propagation Formula</h1>
+        <p>
+            Let \(\theta\) and \(s\) be two variables, and let \(E(\theta,s)\) and \(C(s)\) be two scalar functions. Consider the problem of minimizing
+            \begin{equation}
+                {\mathcal L}(\theta) := C(s(\theta))
+            \end{equation}
+            with respect to \(\theta\), under the constraint that
+            \begin{equation}
+                s(\theta) := \underset{s}{\arg\min} \, E(\theta,s).
+            \end{equation}
+            We wish to optimize \({\mathcal L}(\theta)\) by gradient descent. The equilibrium propagation (Eqprop) method achieves this by introducing a scalar parameter \( \beta \in \mathbb{R} \) to define a family of equilibrium states \(s_\star^\beta\) parameterized by \(\beta\). Assuming that the functions \( E \) and \( C \) are continuously differentiable, there exists a continuous mapping \( \beta \mapsto s_\star^\beta \) such that \( s_\star^0 = s(\theta) \) and
+            \begin{equation}
+                s_\star^\beta = \underset{s}{\arg\min} \left[ E(\theta,s) + \beta \, C(s) \right]
+            \end{equation}
+            for any \(\beta \in \mathbb{R}\). The Eqprop formula relates the gradient of the loss to the partial derivatives of the function \(E\):
+            \begin{equation}
+                \frac{\partial {\mathcal L}}{\partial \theta}(\theta) = \left. \frac{d}{d\beta} \right|_{\beta=0} \frac{\partial E}{\partial \theta} \left( \theta,s_\star^\beta \right).
+            \end{equation}
+            In this expression, \( \frac{\partial E}{\partial \theta} \) denotes the partial derivative of the function \( E(\theta,s) \) with respect to its first argument, and \( \left. \frac{d}{d\beta} \right|_{\beta=0} \) denotes the (total) derivative with respect to \( \beta \) at the point \( \beta=0 \).
+        </p>
+        <p><a href="proof.html" class="blue-link">Proof</a> of the Eqprop formula.</p>
+        <p>As a consequence of this identity, the  <a href="eqprop.html" class="blue-link">Eqprop algorithm</a> performs gradient descent on the loss.</p>
+    </div>
+  </div>
 </body>
 </html>

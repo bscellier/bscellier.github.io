@@ -77,12 +77,6 @@ span.highlight {
   }
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 @media (max-width: 800px) {
   .container {
     padding: 10px;
@@ -94,6 +88,11 @@ span.highlight {
 .container {
   max-width: 800px;
   margin: 0 auto;
+  padding: 20px;
+}
+
+.content-section {
+  text-align: justify;
 }
 
 .header-section {
@@ -119,5 +118,3 @@ h2 {
   font-size: 22px;
   color: #e37222;
 }
-
-/* Additional CSS for the new structure */
