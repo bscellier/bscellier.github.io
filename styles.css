@@ -1,91 +1,84 @@
 a {
-  color: #07889b;
-  text-decoration: none;
+color: #07889b;
+text-decoration: none;
 }
 
 a:focus,
 a:hover {
-  color: #e37222;
+color: #e37222;
 }
 
 body,
-td,
-th,
-tr,
 p,
 a,
 strong {
-  font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-size: 15px;
+font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+font-size: 15px;
 }
 
-li:not(:last-child) {
-  margin-bottom: 5px;
+.news-section li {
+margin-bottom: 5px;
 }
 
 .fade {
-  transition: opacity 0.2s ease-in-out;
-}
-
-span.highlight {
-  background-color: #ffffd0;
+transition: opacity 0.2s ease-in-out;
 }
 
 .blue-link {
-  color: #07889b;
+color: #07889b;
 }
 
 .main-table {
-  width: 100%;
-  max-width: 800px;
+width: 100%;
+max-width: 800px;
 }
 
 @media (max-width: 800px) {
-  .main-table {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.main-table {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
 
-  .main-table td {
-    display: block;
-    width: 100%;
-  }
+.main-table td {
+display: block;
+width: 100%;
+}
 }
 
 @media (max-width: 800px) {
-  .container {
-    padding: 10px;
-  }
+.container {
+padding: 10px;
+}
 }
 
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: justify;
+max-width: 1000px;
+margin: 0 auto;
+padding: 20px;
+text-align: justify;
 }
 
 .header-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .header-text {
-  flex: 1;
-  text-align: center;
+flex: 1;
+text-align: center;
 }
 
 .header-image {
-  flex: 1;
+flex: 1;
 }
 
 h1 {
-  font-size: 42px;
+font-size: 42px;
 }
 
 h2 {
-  font-size: 22px;
-  color: #e37222;
+font-size: 22px;
+color: #e37222;
 }
