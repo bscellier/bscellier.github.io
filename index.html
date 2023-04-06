@@ -2,72 +2,9 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
-  <style type="text/css">
-    /* Color scheme stolen from Sergey Karayev */
-    a {
-    color: #07889b; /*#1772d0;*/
-    text-decoration:none;
-    }
-    a:focus, a:hover {
-    color: #e37222; /*#f7b733;*/ /*f09228;*/
-    text-decoration:none;
-    }
-    body,td,th,tr,p,a {
-    font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif; /*'Lato', Verdana, Helvetica, sans-serif;*/
-    font-size: 15px; /*14*/
-    }
-    strong {
-    font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif; /*'Lato', Verdana, Helvetica, sans-serif;*/
-    font-size: 15px; /*14*/
-    }
-    heading {
-    font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif; /*'Lato', Verdana, Helvetica, sans-serif;*/
-    font-size: 22px;
-    color: #e37222; /*#fc4a1a;*/
-    }
-    heading2 {
-    font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif; /*'Lato', Verdana, Helvetica, sans-serif;*/
-    font-size: 18px;
-    }
-    papertitle {
-    font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif; /*'Lato', Verdana, Helvetica, sans-serif;*/
-    font-size: 15px; /*14*/
-    font-weight: 700;
-    }
-    name {
-    font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif; /*'Lato', Verdana, Helvetica, sans-serif;*/
-    font-size: 42px;
-    }
-    li:not(:last-child) {
-        margin-bottom: 5px;
-    }
-    .one
-    {
-    width: 160px;
-    height: 160px;
-    position: relative;
-    }
-    .two
-    {
-    width: 160px;
-    height: 160px;
-    position: absolute;
-    transition: opacity .2s ease-in-out;
-    -moz-transition: opacity .2s ease-in-out;
-    -webkit-transition: opacity .2s ease-in-out;
-    }
-    .fade {
-     transition: opacity .2s ease-in-out;
-     -moz-transition: opacity .2s ease-in-out;
-     -webkit-transition: opacity .2s ease-in-out;
-    }
-    span.highlight {
-        background-color: #ffffd0;
-    }
-  </style>  
 
 <title>Benjamin Scellier</title>
-  <link href="./_files/css" rel="stylesheet" type="text/css">
+  <link href="styles.css" rel="stylesheet" type="text/css">
   <style id="dark-reader-style" type="text/css">@media screen {
 
 /* Leading rule */
@@ -153,15 +90,15 @@ html {
         benjamin at rain dot ai
         <!╌-benjamin dot scellier at polytechnique dot edu-->
         </p>
-        <p>I am a principal research scientist at  <a href="https://rain.ai/">Rain</a>.
+        <p>I am a principal research scientist at  <a href="https://rain.ai/" class="blue-link">Rain</a>.
         </p>
-        <p>Before that, I was a resident at <a href="https://x.company/">Google X</a>, then a resident at Google Zurich, and then a postdoctoral researcher at the Department of Mathematics of ETH Zurich.
+        <p>Before that, I was a resident at <a href="https://x.company/" class="blue-link">Google X</a>, then a resident at Google Zurich, and then a postdoctoral researcher at the Department of Mathematics of ETH Zurich.
         </p>
-        <p>I completed my PhD at <a href="https://mila.quebec/en/">Mila</a> (University of Montreal) under the supervision of <a href="https://yoshuabengio.org/">Yoshua Bengio</a>.
+        <p>I completed my PhD at <a href="https://mila.quebec/en/" class="blue-link">Mila</a> (University of Montreal) under the supervision of <a href="https://yoshuabengio.org/" class="blue-link">Yoshua Bengio</a>.
         </p>
 
         <p align="center">
-<a href="https://scholar.google.com/citations?user=GWyeAskAAAAJ&hl=en">Google Scholar</a>
+<a href="https://scholar.google.com/citations?user=GWyeAskAAAAJ&hl=en" class="blue-link">Google Scholar</a>
         </p>
         </td>
         <td  width=200 height=200>
@@ -174,8 +111,8 @@ html {
         <heading>News</heading>
         <tbody><tr><td>
             <ul>
-              <li> Equilibrium propagation is featured in <a href="https://www.quantamagazine.org/how-to-make-the-universe-think-for-us-20220531/"> Quanta Magazine</a></li>
-              <li> New preprint: <a href="https://arxiv.org/abs/2205.15021">Agnostic physics-driven deep learning</a></li>
+              <li> Equilibrium propagation is featured in <a href="https://www.quantamagazine.org/how-to-make-the-universe-think-for-us-20220531/" class="blue-link"> Quanta Magazine</a></li>
+              <li> New preprint: <a href="https://arxiv.org/abs/2205.15021" class="blue-link">Agnostic physics-driven deep learning</a></li>
             </ul>
         </td></tr>
      </tbody></table>
@@ -185,11 +122,11 @@ html {
         <tbody><tr><td>
             <p>My main research interests lie at the interface of deep learning, physics and neuroscience. I am more particularly interested in the physics of computation and learning.
             </p>
-            <p>I introduced with Yoshua Bengio a novel mathematical framework for gradient-descent-based machine learning that we called "<a href="https://www.frontiersin.org/articles/10.3389/fncom.2017.00024/full">equilibrium propagation</a>" (Eqprop). Compared to the more conventional framework based on automatic differentiation (i.e. "backpropagation"), the benefit of the Eqprop framework is that inference and gradient computation are performed using the same physical laws. By suggesting a path to perform the desired computations (inference and learning) more efficiently, this framework may have implications for the design of novel hardware ("accelerators") for machine learning.
+            <p>I introduced with Yoshua Bengio a novel mathematical framework for gradient-descent-based machine learning that we called "<a href="https://www.frontiersin.org/articles/10.3389/fncom.2017.00024/full" class="blue-link">equilibrium propagation</a>" (Eqprop). Compared to the more conventional framework based on automatic differentiation (i.e. "backpropagation"), the benefit of the Eqprop framework is that inference and gradient computation are performed using the same physical laws. By suggesting a path to perform the desired computations (inference and learning) more efficiently, this framework may have implications for the design of novel hardware ("accelerators") for machine learning.
             </p>
             <p>
             Since its inception, many collaborators and other research groups have contributed to develop the Eqprop framework.
-            Chapter 2 of my <a href="https://papyrus.bib.umontreal.ca/xmlui/handle/1866/25593">PhD thesis</a> provides a (relatively recent) overview. See also <a href="eqprop/eqprop.html">these notes</a> on Eqprop.
+            Chapter 2 of my <a href="https://papyrus.bib.umontreal.ca/xmlui/handle/1866/25593" class="blue-link">PhD thesis</a> provides a (relatively recent) overview. See also <a href="eqprop/eqprop.html" class="blue-link">these notes</a> on Eqprop.
             <!╌-See also Agostic Eqprop (AEqprop), a novel physical learning algorithm that overcome several of the limitations of Eqprop.-->
             </p>
         </td></tr>
