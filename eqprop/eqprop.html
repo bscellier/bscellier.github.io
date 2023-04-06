@@ -1,28 +1,20 @@
-<!-- saved from url=(0041)https://people.eecs.berkeley.edu/~barron/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="windows-1252">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
   <link rel="stylesheet" href="../styles.css">
-
-<title>Benjamin Scellier</title>
+  <title>Benjamin Scellier</title>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
-  <link href="./_files/css" rel="stylesheet" type="text/css">
-
 </head>
-  <body><div id="StayFocusd-infobar" style="display: none; top: 2400px;">
-    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
-    <span id="StayFocusd-infobar-msg"></span>
-    <span id="StayFocusd-infobar-links">
-        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-        <a id="StayFocusd-infobar-hide">hide once</a>
-    </span>
-</div>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-        <heading>Equilibrium Propagation</heading>
-        <tbody><tr><td>
+<body>
+  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+    <heading>Equilibrium Propagation</heading>
+    <tbody>
+      <tr>
+        <td>
             <p>Consider the prototypical machine learning setting where one wants to minimize an objective function
                 \[J(\theta) = \mathbb{E}_{(x,y)} \left[ C(s(\theta,x),y) \right]\]
                 with respect to some parameter \(\theta\). The variables \(x\) and \(y\) represent an input and its associated label, \(C\) is a cost function, and \(s(\theta,x)\) is a prediction with respect to \(y\), computed from \(\theta\) and \(x\). The expectation \( \mathbb{E}_{(x,y)} \) is taken over the distribution of input-output pairs \( (x,y) \) for the task that we want to solve.</p>
@@ -46,7 +38,9 @@
                 i.e. the above learning rule performs one step of SGD with learning rate \( \eta = \alpha \beta \), up to \(O(\beta^2)\).
                 This result is a consequence of the <a href="eqprop-formula.html" class="blue-link">equilibrium propagation formula</a>.
             </p>
-        </td></tr>
-     </tbody></table>
-
-</body></html>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

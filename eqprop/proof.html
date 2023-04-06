@@ -1,75 +1,61 @@
+<!DOCTYPE html>
 <html>
-
-<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<head>
+  <meta charset="windows-1252">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
   <link rel="stylesheet" href="../styles.css">
-
-<title>Benjamin Scellier</title>
+  <title>Benjamin Scellier</title>
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
-  <link href="./_files/css" rel="stylesheet" type="text/css">
-
 </head>
-    <body>
-        <div id="StayFocusd-infobar" style="display: none; top: 2400px;">
-        <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
-        <span id="StayFocusd-infobar-msg"></span>
-        <span id="StayFocusd-infobar-links">
-            <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-            <a id="StayFocusd-infobar-hide">hide once</a>
-        </span>
-        </div>
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <heading>Proof of the Eqprop Formula</heading>
-            <tbody>
-                <tr>
-                    <td>
-                        <h3 class="card-subheading">Lemma</h3>
-                        <p>
-                        Let \(F(\theta, \beta, s)\) be a twice differentiable function of the three variables \(\theta\), \(\beta\) and \(s\). Let \(\overline{s}\) be a stationarity point of \(F(\overline{\theta}, \overline{\beta}, \cdot)\), i.e.
-                        \( \frac{\partial F}{\partial s}(\overline{\theta}, \overline{\beta}, \overline{s}) = 0\),
-                        and suppose that \(\frac{\partial^2 F}{\partial s^2}(\overline{\theta}, \overline{\beta}, \overline{s})\) is invertible. Then, there exists a neighborhood of \((\overline{\theta}, \overline{\beta})\) and a continuously differentiable function \((\theta, \beta) \mapsto s_\theta^\beta\) defined in this neighborhood, such that \(s_{\overline{\theta}}^{\overline{\beta}} = \overline{s}\) and
-                        \begin{equation}
-                        \frac{\partial F}{\partial s}(\theta, \beta, s_\theta^\beta) = 0
-                        \end{equation}
-                        for every \((\theta\), \(\beta\)). Furthermore, we have the following identity:
-                        \begin{equation}
-                        \frac{d}{d\theta} \frac{\partial F}{\partial \beta}(\theta, \beta, s_\theta^\beta) = \frac{d}{d\beta} \frac{\partial F}{\partial \theta}(\theta, \beta, s_\theta^\beta).
-                        \end{equation}
-                        </p>
-
-                        <h3 class="card-subheading">Proof of the lemma</h3>
-                        <p>
-                        The first statement follows from the implicit function theorem. It remains to prove the formula. Let us consider \(F \left(\theta, \beta, s_\theta^\beta \right)\) as a function of \((\theta, \beta)\). Using the chain rule of differentiation and the stationary condition, we have
-                        \begin{equation}
-                          \frac{d}{d\beta} F(\theta, \beta, s_\theta^\beta) = \frac{\partial F}{\partial \beta} \left( \theta, \beta, s_\theta^\beta \right)
-                          + \underbrace{\frac{\partial F}{\partial s} \left( \theta, \beta, s_\theta^\beta \right)}_{= \; 0} \cdot \frac{\partial s_\theta^\beta}{\partial \beta}.
-                        \end{equation}
-                        Similarly, we have
-                        \begin{equation}
-                          \frac{d}{d\theta} F(\theta, \beta, s_\theta^\beta) = \frac{\partial F}{\partial \theta} \left( \theta, \beta, s_\theta^\beta \right)
-                          + \underbrace{\frac{\partial F}{\partial s} \left( \theta, \beta, s_\theta^\beta \right)}_{= \; 0} \cdot \frac{\partial s_\theta^\beta}{\partial \theta}.
-                        \end{equation}
-                        Combining these equations and using the symmetry of second-derivatives, we get:
-                        \begin{equation}
-                        \frac{d}{d\theta} \frac{\partial F}{\partial \beta}(\theta, \beta, s_\theta^\beta) = \frac{d}{d\theta} \frac{d}{d\beta} F(\theta, \beta, s_\theta^\beta) =  \frac{d}{d\beta} \frac{d}{d\theta} F(\theta, \beta, s_\theta^\beta) = \frac{d}{d\beta} \frac{\partial F}{\partial \theta}(\theta, \beta, s_\theta^\beta).
-                        \end{equation}
-                        </p>
-
-                        <h3 class="card-subheading">Proof of the <a href="eqprop-formula.html" class="blue-link">equilibrium propagation formula</a></h3>
-                        <p>
-                        Consider the function \(F(\theta, \beta, s) = E(\theta, x, s) + \beta C(s, y)\) given a fixed input-target pair \((x, y)\). Applying the lemma to this function \(F\), we get
-                        \begin{equation}
-                            \frac{d}{d\theta} C(s_\theta^\beta,y) = \frac{d}{d\beta} \frac{\partial E}{\partial \theta}(\theta, x, s_\theta^\beta).
-                        \end{equation}
-                        Evaluating this equation at the point \(\beta=0\), we obtain the Eqprop formula.
-                        </p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </body>
+<body>
+  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+    <heading>Proof of the Equilibrium Propagation Formula</heading>
+    <tbody>
+      <tr>
+        <td>
+          <h3 class="card-subheading">Lemma</h3>
+            <p>
+            Let \(F(\theta, \beta, s)\) be a twice differentiable function of the three variables \(\theta\), \(\beta\) and \(s\). Let \(\overline{s}\) be a stationarity point of \(F(\overline{\theta}, \overline{\beta}, \cdot)\), i.e.
+            \( \frac{\partial F}{\partial s}(\overline{\theta}, \overline{\beta}, \overline{s}) = 0\),
+            and suppose that \(\frac{\partial^2 F}{\partial s^2}(\overline{\theta}, \overline{\beta}, \overline{s})\) is invertible. Then, there exists a neighborhood of \((\overline{\theta}, \overline{\beta})\) and a continuously differentiable function \((\theta, \beta) \mapsto s_\theta^\beta\) defined in this neighborhood, such that \(s_{\overline{\theta}}^{\overline{\beta}} = \overline{s}\) and
+            \begin{equation}
+            \frac{\partial F}{\partial s}(\theta, \beta, s_\theta^\beta) = 0
+            \end{equation}
+            for every \((\theta\), \(\beta\)). Furthermore, we have the following identity:
+            \begin{equation}
+            \frac{d}{d\theta} \frac{\partial F}{\partial \beta}(\theta, \beta, s_\theta^\beta) = \frac{d}{d\beta} \frac{\partial F}{\partial \theta}(\theta, \beta, s_\theta^\beta).
+            \end{equation}
+            </p>
+          <h3 class="card-subheading">Proof of the lemma</h3>
+            <p>
+            The first statement follows from the implicit function theorem. It remains to prove the formula. Let us consider \(F \left(\theta, \beta, s_\theta^\beta \right)\) as a function of \((\theta, \beta)\). Using the chain rule of differentiation and the stationary condition, we have
+            \begin{equation}
+              \frac{d}{d\beta} F(\theta, \beta, s_\theta^\beta) = \frac{\partial F}{\partial \beta} \left( \theta, \beta, s_\theta^\beta \right)
+              + \underbrace{\frac{\partial F}{\partial s} \left( \theta, \beta, s_\theta^\beta \right)}_{= \; 0} \cdot \frac{\partial s_\theta^\beta}{\partial \beta}.
+            \end{equation}
+            Similarly, we have
+            \begin{equation}
+              \frac{d}{d\theta} F(\theta, \beta, s_\theta^\beta) = \frac{\partial F}{\partial \theta} \left( \theta, \beta, s_\theta^\beta \right)
+              + \underbrace{\frac{\partial F}{\partial s} \left( \theta, \beta, s_\theta^\beta \right)}_{= \; 0} \cdot \frac{\partial s_\theta^\beta}{\partial \theta}.
+            \end{equation}
+            Combining these equations and using the symmetry of second-derivatives, we get:
+            \begin{equation}
+            \frac{d}{d\theta} \frac{\partial F}{\partial \beta}(\theta, \beta, s_\theta^\beta) = \frac{d}{d\theta} \frac{d}{d\beta} F(\theta, \beta, s_\theta^\beta) =  \frac{d}{d\beta} \frac{d}{d\theta} F(\theta, \beta, s_\theta^\beta) = \frac{d}{d\beta} \frac{\partial F}{\partial \theta}(\theta, \beta, s_\theta^\beta).
+            \end{equation}
+            </p>
+          <h3 class="card-subheading">Proof of the <a href="eqprop-formula.html" class="blue-link">equilibrium propagation formula</a></h3>
+            <p>
+            Consider the function \(F(\theta, \beta, s) = E(\theta, x, s) + \beta C(s, y)\) given a fixed input-target pair \((x, y)\). Applying the lemma to this function \(F\), we get
+            \begin{equation}
+                \frac{d}{d\theta} C(s_\theta^\beta,y) = \frac{d}{d\beta} \frac{\partial E}{\partial \theta}(\theta, x, s_\theta^\beta).
+            \end{equation}
+            Evaluating this equation at the point \(\beta=0\), we obtain the Eqprop formula.
+            </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
 </html>

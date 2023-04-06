@@ -1,65 +1,63 @@
-/* Color scheme stolen from Sergey Karayev */
 a {
   color: #07889b;
   text-decoration: none;
 }
+
 a:focus,
 a:hover {
   color: #e37222;
-  text-decoration: none;
 }
+
 body,
 td,
 th,
 tr,
 p,
-a {
-  font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-size: 15px;
-}
+a,
 strong {
   font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 15px;
 }
+
 heading {
-  font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 22px;
   color: #e37222;
 }
+
 heading2 {
-  font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 18px;
 }
+
 papertitle {
-  font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  font-size: 15px;
   font-weight: 700;
 }
+
 name {
-  font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif;
   font-size: 42px;
 }
+
 li:not(:last-child) {
   margin-bottom: 5px;
 }
-.one {
+
+.one,
+.two {
   width: 160px;
   height: 160px;
   position: relative;
 }
+
 .two {
-  width: 160px;
-  height: 160px;
   position: absolute;
+}
+
+.fade,
+.two {
   transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
   -webkit-transition: opacity 0.2s ease-in-out;
 }
-.fade {
-  transition: opacity 0.2s ease-in-out;
-  -moz-transition: opacity 0.2s ease-in-out;
-  -webkit-transition: opacity 0.2s ease-in-out;
-}
+
 span.highlight {
   background-color: #ffffd0;
 }
@@ -67,4 +65,3 @@ span.highlight {
 .blue-link {
   color: #07889b;
 }
-
