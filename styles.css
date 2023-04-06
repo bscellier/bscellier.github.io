@@ -19,35 +19,12 @@ strong {
   font-size: 15px;
 }
 
-name {
-  font-size: 42px;
-}
-
-heading {
-  font-size: 22px;
-  color: #e37222;
-}
-
 li:not(:last-child) {
   margin-bottom: 5px;
 }
 
-.one,
-.two {
-  width: 160px;
-  height: 160px;
-  position: relative;
-}
-
-.two {
-  position: absolute;
-}
-
-.fade,
-.two {
+.fade {
   transition: opacity 0.2s ease-in-out;
-  -moz-transition: opacity 0.2s ease-in-out;
-  -webkit-transition: opacity 0.2s ease-in-out;
 }
 
 span.highlight {
@@ -58,7 +35,6 @@ span.highlight {
   color: #07889b;
 }
 
-/* Add responsiveness to the main table */
 .main-table {
   width: 100%;
   max-width: 800px;
@@ -83,15 +59,10 @@ span.highlight {
   }
 }
 
-
-
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
-}
-
-.content-section {
   text-align: justify;
 }
 
