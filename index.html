@@ -19,29 +19,45 @@
         </div>
         <div>
             <p>I am a principal research scientist at  <a href="https://rain.ai/">Rain</a>.</p>
+            <!--
             <p>Before that, I was a resident at <a href="https://x.company/">Google X</a>, then a resident at Google Zurich, and then a postdoctoral researcher at the Department of Mathematics of ETH Zurich.</p>
-            <p>I completed my PhD at <a href="https://mila.quebec/en/">Mila</a> (University of Montreal) under the supervision of <a href="https://yoshuabengio.org/">Yoshua Bengio</a>.</p>
+            -->
+            <p>I did a PhD in computer science at <a href="https://mila.quebec/en/">Mila</a> (University of Montreal) under the supervision of <a href="https://yoshuabengio.org/">Yoshua Bengio</a>.</p>
         </div>
         <div align="center">
             <a href="https://scholar.google.com/citations?user=GWyeAskAAAAJ&hl=en">Google Scholar</a>
         </div>
-        <div class="news-section">
-            <h2>News</h2>
-              <li> Equilibrium propagation is featured in <a href="https://www.quantamagazine.org/how-to-make-the-universe-think-for-us-20220531/"> Quanta Magazine</a></li>
-              <li> New preprint: <a href="https://arxiv.org/abs/2205.15021">Agnostic physics-driven deep learning</a></li>
-        </div>
         <div class="about-section">
-            <h2>About me</h2>
-            <p>My main research interests lie at the interface of deep learning, physics and neuroscience. I am more particularly interested in physics-based computation and learning.</p>
-            <p>Much of my current research revolves around <a href="https://www.frontiersin.org/articles/10.3389/fncom.2017.00024/full">equilibrium propagation</a> (EP), a novel mathematical framework for gradient-descent-based machine learning. Compared to the more conventional framework based on automatic differentiation (i.e. "backpropagation"), the benefit of the EP framework is that inference and gradient computation are performed using the same physical laws. By suggesting a path to perform the desired computations (inference and learning) more efficiently, this framework may have implications for the design of novel hardware ("accelerators") for deep learning. For more information on EP, Chapter 2 of my <a href="https://papyrus.bib.umontreal.ca/xmlui/handle/1866/25593">PhD thesis</a> provides a (relatively recent) overview. See also <a href="eqprop/eqprop.html">these notes</a> on EP.
+            <h2>Research Interests</h2>
+            <p>My current research interests lie at the interface of deep learning and physics. I am more particularly interested in physics-based computation and learning.</p>
+            <p>Much of my current research revolves around <a href="https://www.frontiersin.org/articles/10.3389/fncom.2017.00024/full">equilibrium propagation</a> (EP), a gradient-descent-based optimization framework grounded in physical principles. Compared to the more conventional framework based on automatic differentiation ("backpropagation"), the advantage of EP is that inference and gradient computation are performed using the same physical laws. This feature makes EP a potentially useful framework for the design of energy-efficient ("neuromorphic") hardware for deep learning, by leveraging physics to perform neural network inference and learning more efficiently. For more information, Chapter 2 of my <a href="https://papyrus.bib.umontreal.ca/xmlui/handle/1866/25593">PhD thesis</a> provides a (relatively recent) overview of EP. See also <a href="eqprop/eqprop.html">these notes</a> on EP.</p>
+            <p>
+            In recent years, various neuromorphic platforms compatible with EP-training have been proposed, including <a href="https://arxiv.org/abs/2006.01981">nonlinear resistor networks</a>, <a href="https://arxiv.org/abs/2305.18321">Ising machines</a>, <a href="https://arxiv.org/abs/2402.08579">coupled phase oscillators</a>, as well as <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.11.021045">flow and elastic networks</a>.
+            <!--
+            Experimental realizations of learning schemes closely related to EP have also been performed on resistor networks, memristor crossbars and elastic networks.
+            -->
+            To speed up research and assess the scalability of these approaches, one mission for the field is to develop efficient simulators for both these neuromorphic platforms and the EP training process. This is the ambition of this <a href="https://github.com/rain-neuromorphics/energy-based-learning">early-stage codebase</a>. If you are interested, have comments or ideas, feel free to reach out.
+            </p>
+            <p>
+            Ultimately, I am also interested in understanding the learning mechanisms of the brain. (Needless to say that more complex frameworks will be needed for that.)
             </p>
         </div>
+        <div class="news-section">
+            <h2>Recent Articles and Preprints</h2>
+              <li> Equilibrium propagation was featured in <a href="https://www.quantamagazine.org/how-to-make-the-universe-think-for-us-20220531/"> Quanta Magazine</a>.</li>
+              <li> <a href="https://arxiv.org/abs/2312.15021">Energy-based learning algorithms for analog computing: a comparative study.</a> This paper compares different variants of EP.</li>
+              <li> <a href="https://arxiv.org/abs/2205.15021">Agnostic physics-driven deep learning</a> using homeostatic control. This paper introduces `Agnostic EP' (AEP). Compared to EP, the weight updates in AEP are performed directly by physical dynamics.</li>
+        </div>
+        <!--
         <div>
             <h2>Invited Talks</h2>
-            <li>March 2023. APS March Meeting. Session on "Learning in physical systems without neurons". "A mathematical framework of learning grounded in physical principles" (invited speaker)</li>
-            <li>May 2021. ICLR 2021. Workshop on energy-based models. "A deep learning theory for neural networks grounded in physics" (invited speaker)</li>
-            <li>August 2020. Neuromorphic Workshop Telluride. "Training nonlinear resistive networks with equilibrium propagation" (invited speaker)</li>
+            <li>January 2024. Aspen Winter Conference "Computing with Physical Systems". Invited speaker.</li>
+            <li>September 2023. Max Planck Institute for the Science of Light. Frontiers of Neuromorphic Computing Workshop. Invited speaker.</li>
+            <li>March 2023. APS March Meeting. Session on "Learning in physical systems without neurons". Invited speaker.</li>
+            <li>May 2021. ICLR Workshop on "Energy-based models". Invited speaker.</li>
+            <li>August 2020. Neuromorphic Workshop Telluride. Invited speaker.</li>
         </div>
+        -->
     </div>
 </body>
 </html>
