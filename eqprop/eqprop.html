@@ -22,12 +22,16 @@
             is the per-example loss function. For clarity, we distinguish the loss (\({\mathcal L}\)) from the objective (\(J\)) and the cost (\(C\)).</p>
         <p>In the equilibrium propagation (EP) framework, \( s(\theta,x) \) is the equilibrium state of a physical system, obtained by a process of physical equilibration:
             \[s(\theta,x) = \underset{s}{\arg\min} \, E(\theta,x,s),\]
-            where \( E \) is the energy function defined for any tuple \((\theta,x,s)\). The input \(x\) is typically imposed as a boundary condition to the system. The central idea of EP is to perturb (or `nudge') the system by augmenting its energy function \( E\) by an energy term \( \beta C \), where \( \beta \in \mathbb{R} \) is the `nudging factor'. The system then settles to a new equilibrium state that depends on the value of the nudge \( \beta \),
-            \[ s_\star^\beta = \underset{s}{\arg\min} \, F(\theta,\beta,s). \]
-            In particular, for \( \beta=0 \) we have \( s_\star^0 = s(\theta,x) \).
-            The learning rule for the parameters follows a contrastive scheme:
+            where \( E \) is the energy function, and \( s \) is the state of the system. The input \(x\) is typically supplied as a boundary condition to the system. The central idea of EP is to view the cost function \( C(s,y) \) as the energy of a new interaction between the system's state (\(s\)) and the desired output (\(y\)) ; this new energy term can be modulated by a parameter \( \beta \in \mathbb{R} \) (called `nudging parameter') and added to the energy function of the system to form the `total energy function':
+            \[ F(\theta,\beta,s) = E(\theta,x,s) + \beta C(s,y). \]
+            In its original formulation, EP follows a contrastive scheme, proceeding as follows:
+            <ol>
+            <li> Set \( \beta=0 \) and let the system settle to an energy minimum, called `free state': \( s_\star^0 = \underset{s}{\arg\min} \, F(\theta,0,s) = s(\theta,x). \)
+            <li> Set \( \beta>0 \) and let the system settle to a new energy minimum, called `nudge state': \( s_\star^\beta = \underset{s}{\arg\min} \, F(\theta,\beta,s). \)
+            <li> Choose a learning rate \( \eta>0 \) and update the parameters:
             \[ \Delta \theta = - \frac{\eta}{\beta} \left( \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^\beta\right) - \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^0\right) \right). \]
-            The main theoretical result is that the EP learning rule performs one step of SGD with learning rate \( \eta \), up to \( O(\beta) \),
+            </ol>
+            The central insight of EP is that the above learning rule performs one step of SGD on the loss \( {\mathcal L} \) with learning rate \( \eta \), up to \( O(\beta) \),
             \[ \Delta \theta = - \eta \frac{\partial {\mathcal L}}{\partial \theta}(\theta, x, y) + O(\beta). \]
             This result is a consequence of the <a href="eqprop-formula.html">equilibrium propagation formula</a>.
         </p>
