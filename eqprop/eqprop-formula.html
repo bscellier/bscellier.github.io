@@ -1,40 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="windows-1252">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../styles.css">
-  <title>Benjamin Scellier</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  <title>Equilibrium Propagation Formula &mdash; Benjamin Scellier</title>
+  <script>
+    window.MathJax = { tex: { tags: 'ams' }, chtml: { scale: 1.0 } };
   </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="content-section">
-      <h1 align="center">Equilibrium Propagation Formula</h1>
-        <p>
-            Let \(\Theta = \mathbb{R}^p \) and \( \mathcal{S} = \mathbb{R}^n \), and let \(E: \Theta \times \mathcal{S} \to \mathbb{R} \) and \(C: \mathcal{S} \to \mathbb{R} \) be two scalar functions. Consider the problem of minimizing
-            \begin{equation}
-                {\mathcal L}(\theta) := C(s(\theta))
-            \end{equation}
-            with respect to \(\theta \in \Theta\), subject to the constraint that
-            \begin{equation}
-                s(\theta) := \underset{s \in \mathcal{S}}{\arg\min} \, E(\theta,s).
-            \end{equation}
-            We wish to optimize \({\mathcal L}(\theta)\) by gradient descent. Equilibrium propagation (EP) achieves this by defining a family of equilibrium states \(s_\theta^\beta\) parameterized by \(\theta \in \Theta \) and a scalar \(\beta \in \mathbb{R} \),
-            \begin{equation}
-                s_\theta^\beta = \underset{s \in \mathcal{S}}{\arg\min} \left[ E(\theta,s) + \beta \, C(s) \right].
-            \end{equation}
-            Assuming that the functions \( E \) and \( C \) are continuously differentiable, given \( \theta \in \Theta \) fixed, there exists a continuous mapping \( \beta \mapsto s_\theta^\beta \) satisfying \( s_\theta^0 = s(\theta) \) and the above equation for any \(\beta \in \mathbb{R}\). The EP formula relates the gradient of the loss to the partial derivatives of the function \(E\):
-            \begin{equation}
-                \nabla_\theta \mathcal{L} (\theta) = \left. \frac{d}{d\beta} \right|_{\beta=0} \partial_\theta E \left( \theta,s_\theta^\beta \right).
-            \end{equation}
-            In this expression, \( \partial_\theta E(\theta,s) \) denotes the partial derivative of the function \( E(\theta,s) \) with respect to its first argument, and \( \left. \frac{d}{d\beta} \right|_{\beta=0} \) denotes the (total) derivative with respect to \( \beta \) (through \( s_\theta^\beta \) ) at the point \( \beta=0 \).
+  <main class="container">
+    <nav class="topbar">
+      <div class="crumbs"><a href="../index.html">B. Scellier</a><span>/</span>Notes on EP</div>
+      <ol class="series">
+        <li><a href="eqprop.html">1&nbsp;Algorithm</a></li>
+        <li><a href="eqprop-formula.html" aria-current="page">2&nbsp;Formula</a></li>
+        <li><a href="proof.html">3&nbsp;Proof</a></li>
+      </ol>
+    </nav>
+
+    <header class="note-header">
+      <p class="kicker">Note 2 of 3</p>
+      <h1>Equilibrium Propagation Formula</h1>
+      <p class="subtitle">The gradient of the loss, read off from two equilibrium states.</p>
+    </header>
+
+    <article class="content-section">
+      <p>
+        Let \(\Theta = \mathbb{R}^p \) and \( \mathcal{S} = \mathbb{R}^n \), and let \(E: \Theta \times \mathcal{S} \to \mathbb{R} \) and \(C: \mathcal{S} \to \mathbb{R} \) be two scalar functions. Consider the problem of minimizing
+        \begin{equation}
+            {\mathcal L}(\theta) := C(s(\theta))
+        \end{equation}
+        with respect to \(\theta \in \Theta\), subject to the constraint that \( s(\theta) \) is an equilibrium state, i.e. a stationary point of the energy:
+        \begin{equation}
+            \frac{\partial E}{\partial s}\big(\theta,s(\theta)\big) = 0.
+        \end{equation}
+        The equilibrium state need not be a minimum of \( E \): it can be any stationary point (minimum, maximum or saddle point). We assume that \( E \) and \( C \) are twice continuously differentiable, and that the equilibrium is non-degenerate, i.e. the Hessian \( \frac{\partial^2 E}{\partial s^2}\big(\theta,s(\theta)\big) \) is invertible. We wish to optimize \({\mathcal L}(\theta)\) by gradient descent. Equilibrium propagation (EP) achieves this by defining a family of equilibrium states \(s_\theta^\beta\) parameterized by \(\theta \in \Theta \) and a scalar \(\beta \in \mathbb{R} \), as stationary points of the total energy:
+        \begin{equation}
+            \frac{\partial E}{\partial s}(\theta,s_\theta^\beta) + \beta \, \frac{\partial C}{\partial s}(s_\theta^\beta) = 0.
+        \end{equation}
+        By the implicit function theorem (see the <a href="proof.html">lemma</a>), there exists a neighborhood of \( (\theta, 0) \) and a unique continuously differentiable mapping \( (\theta, \beta) \mapsto s_\theta^\beta \) defined on this neighborhood, satisfying \( s_\theta^0 = s(\theta) \) and the above stationarity condition.
+      </p>
+
+      <div class="env statement">
+        <span class="env-label">Theorem &mdash; EP formula</span>
+        <p>The gradient of the loss is related to the partial derivatives of the function \(E\) by
+          \begin{equation}
+              \nabla_\theta \mathcal{L} (\theta) = \left. \frac{d}{d\beta} \right|_{\beta=0} \frac{\partial E}{\partial \theta}  \left( \theta,s_\theta^\beta \right).
+          \end{equation}
         </p>
-        <p><a href="proof.html">Proof</a> of the EP formula.</p>
-        <p>As a consequence of this identity, the  <a href="eqprop.html">EP algorithm</a> performs (or approximates) gradient descent on the loss.</p>
-    </div>
-  </div>
+      </div>
+
+      <p>In this expression, \( \frac{\partial E}{\partial \theta}(\theta,s) \) denotes the partial derivative of the function \( E(\theta,s) \) with respect to its first argument, and \( \left. \frac{d}{d\beta} \right|_{\beta=0} \) denotes the (total) derivative with respect to \( \beta \) (through \( s_\theta^\beta \) ) at the point \( \beta=0 \).</p>
+      <p>See the <a href="proof.html">proof</a> of the EP formula. As a consequence of this identity, the <a href="eqprop.html">EP algorithm</a> performs (or approximates) gradient descent on the loss.</p>
+    </article>
+
+    <nav class="pager">
+      <a href="eqprop.html"><small>Previous</small>&larr; The EP algorithm</a>
+      <a class="next" href="proof.html"><small>Next</small>Proof &rarr;</a>
+    </nav>
+  </main>
 </body>
 </html>

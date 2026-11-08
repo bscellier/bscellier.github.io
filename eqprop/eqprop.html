@@ -1,41 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="windows-1252">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../styles.css">
-  <title>Benjamin Scellier</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  <title>Equilibrium Propagation &mdash; Benjamin Scellier</title>
+  <script>
+    window.MathJax = { tex: { tags: 'ams' }, chtml: { scale: 1.0 } };
   </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="content-section">
-      <h1 align="center">Equilibrium Propagation</h1>
-        <p>Consider the prototypical machine learning setting where one wants to minimize an objective function
-            \[J(\theta) = \mathbb{E}_{(x,y)} \left[ C(s(\theta,x),y) \right]\]
-            with respect to some parameter \(\theta\). The variables \(x\) and \(y\) represent an input and its associated label, \(C\) is a cost function, and \(s(\theta,x)\) is a prediction with respect to \(y\), computed from \(\theta\) and \(x\). The expectation \( \mathbb{E}_{(x,y)} \) is taken over the distribution of input-output pairs \( (x,y) \) for the task that we want to solve. In deep learning, the objective function is usually optimized by stochastic gradient descent (SGD). Each step of SGD consists in choosing an input-output pair \( (x,y) \) at random from a training set of examples, and updating the parameters according to
-            \( \Delta \theta = -\eta \, \frac{\partial {\mathcal L}}{\partial \theta}(\theta,x,y) \),
-            where \( \eta>0 \) is the learning rate and
-            \[ {\mathcal L}(\theta,x,y) = C(s(\theta,x),y) \]
-            is the per-example loss function. For clarity, we distinguish the loss (\({\mathcal L}\)) from the objective (\(J\)) and the cost (\(C\)).</p>
-        <p>In the equilibrium propagation (EP) framework, \( s(\theta,x) \) is the equilibrium state of a physical system, obtained by a process of physical equilibration:
-            \[s(\theta,x) = \underset{s}{\arg\min} \, E(\theta,x,s),\]
-            where \( E \) is the energy function, and \( s \) is the state of the system. The input \(x\) is typically supplied as a boundary condition to the system. The central idea of EP is to view the cost function \( C(s,y) \) as the energy of a new interaction between the system's state (\(s\)) and the desired output (\(y\)) ; this new energy term is modulated by a parameter \( \beta \in \mathbb{R} \) (called `nudging parameter') and added to the energy function of the system to form the `total energy function':
-            \[ F(\theta,\beta,s) = E(\theta,x,s) + \beta C(s,y). \]
-            In its original formulation, EP follows a contrastive scheme, proceeding as follows:
-            <ol>
-            <li> Set \( \beta=0 \) and let the system settle to an energy minimum, called `free state': \( s_\star^0 = \underset{s}{\arg\min} \, F(\theta,0,s) = s(\theta,x). \)
-            <li> Set \( \beta>0 \) and let the system settle to a new energy minimum, called `nudge state': \( s_\star^\beta = \underset{s}{\arg\min} \, F(\theta,\beta,s). \)
-            <li> Choose a learning rate \( \eta>0 \) and update the parameters according to the following contrastive rule:
-            \[ \Delta \theta = - \frac{\eta}{\beta} \left( \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^\beta\right) - \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^0\right) \right). \]
-            </ol>
-            The central insight of EP is that the above learning rule performs one step of SGD on the loss \( {\mathcal L} \) with learning rate \( \eta \), up to \( O(\beta) \),
-            \[ \Delta \theta = - \eta \frac{\partial {\mathcal L}}{\partial \theta}(\theta, x, y) + O(\beta). \]
-            This result is a consequence of the <a href="eqprop-formula.html">equilibrium propagation formula</a>.
-        </p>
-    </div>
-  </div>
+  <main class="container">
+    <nav class="topbar">
+      <div class="crumbs"><a href="../index.html">B. Scellier</a><span>/</span>Notes on EP</div>
+      <ol class="series">
+        <li><a href="eqprop.html" aria-current="page">1&nbsp;Algorithm</a></li>
+        <li><a href="eqprop-formula.html">2&nbsp;Formula</a></li>
+        <li><a href="proof.html">3&nbsp;Proof</a></li>
+      </ol>
+    </nav>
+
+    <header class="note-header">
+      <p class="kicker">Note 1 of 3</p>
+      <h1>Equilibrium Propagation</h1>
+      <p class="subtitle">Learning by nudging a physical system towards the desired output.</p>
+    </header>
+
+    <article class="content-section">
+      <p>Consider the prototypical machine learning setting where one wants to minimize an objective function
+        \[J(\theta) = \mathbb{E}_{(x,y)} \left[ C(s(\theta,x),y) \right]\]
+        with respect to some parameter \(\theta\). The variables \(x\) and \(y\) represent an input and its associated label, \(C\) is a cost function, and \(s(\theta,x)\) is a prediction with respect to \(y\), computed from \(\theta\) and \(x\). The expectation \( \mathbb{E}_{(x,y)} \) is taken over the distribution of input-output pairs \( (x,y) \) for the task that we want to solve. In deep learning, the objective function is usually optimized by stochastic gradient descent (SGD). Each step of SGD consists in choosing an input-output pair \( (x,y) \) at random from a training set of examples, and updating the parameters according to
+        \( \Delta \theta = -\eta \, \frac{\partial {\mathcal L}}{\partial \theta}(\theta,x,y) \),
+        where \( \eta>0 \) is the learning rate and
+        \[ {\mathcal L}(\theta,x,y) = C(s(\theta,x),y) \]
+        is the per-example loss function. For clarity, we distinguish the loss (\({\mathcal L}\)) from the objective (\(J\)) and the cost (\(C\)).</p>
+
+      <p>In the equilibrium propagation (EP) framework, \( s(\theta,x) \) is an equilibrium state of a physical system, obtained by a process of physical equilibration. Equilibrium states are characterized as stationary points of an energy function \( E \):
+        \[\frac{\partial E}{\partial s}\big(\theta,x,s(\theta,x)\big) = 0,\]
+        where \( s \) is the state of the system. The input \(x\) is typically supplied as a boundary condition to the system. Importantly, EP does not require the equilibrium state to be a minimum of the energy: it may be any stationary point (a minimum, a maximum or a saddle point), provided it is non-degenerate, i.e. the Hessian \( \frac{\partial^2 E}{\partial s^2}\big(\theta,x,s(\theta,x)\big) \) is invertible. The central idea of EP is to view the cost function \( C(s,y) \) as the energy of a new interaction between the system's state (\(s\)) and the desired output (\(y\)) ; this new energy term is modulated by a parameter \( \beta \in \mathbb{R} \) (called `nudging parameter') and added to the energy function of the system to form the `total energy function':
+        \[ F(\theta,\beta,s) = E(\theta,x,s) + \beta C(s,y). \]
+        By the implicit function theorem, for \( \beta \) close to \( 0 \), the free equilibrium \( s(\theta,x) \) extends to a unique, smooth branch of stationary points \( \beta \mapsto s_\star^\beta \) of \( F(\theta,\beta,\cdot) \), with \( s_\star^0 = s(\theta,x) \).</p>
+
+      <div class="env">
+        <span class="env-label">Algorithm &mdash; contrastive EP</span>
+        <p>In its original formulation, EP follows a contrastive scheme, proceeding as follows:</p>
+        <ol>
+          <li>Set \( \beta=0 \) and let the system settle to equilibrium, called `free state': a stationary point \( s_\star^0 = s(\theta,x) \) satisfying \( \frac{\partial F}{\partial s}(\theta,0,s_\star^0) = 0. \)</li>
+          <li>Set \( \beta>0 \) (small) and let the system settle to a new equilibrium, called `nudge state': the stationary point \( s_\star^\beta \) satisfying \( \frac{\partial F}{\partial s}(\theta,\beta,s_\star^\beta) = 0 \), on the branch continuing from \( s_\star^0 \).</li>
+          <li>Choose a learning rate \( \eta>0 \) and update the parameters according to the following contrastive rule:
+            \[ \Delta \theta = - \frac{\eta}{\beta} \left( \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^\beta\right) - \frac{\partial E}{\partial \theta} \left(\theta,x,s_\star^0\right) \right). \]</li>
+        </ol>
+      </div>
+
+      <p>The central insight of EP is that the above learning rule performs one step of SGD on the loss \( {\mathcal L} \) with learning rate \( \eta \), up to \( O(\beta) \),
+        \[ \Delta \theta = - \eta \frac{\partial {\mathcal L}}{\partial \theta}(\theta, x, y) + O(\beta). \]
+        This result is a consequence of the <a href="eqprop-formula.html">equilibrium propagation formula</a>.</p>
+    </article>
+
+    <nav class="pager">
+      <a class="next" href="eqprop-formula.html"><small>Next</small>The EP formula &rarr;</a>
+    </nav>
+  </main>
 </body>
 </html>

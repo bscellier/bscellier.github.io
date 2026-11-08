@@ -1,69 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="windows-1252">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Benjamin Scellier</title>
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div class="container">
-        <div class="header-section">
+    <main class="container sections">
+        <header class="header-section">
             <div class="header-text">
+                <p class="kicker">Machine learning &times; Physics</p>
                 <h1>Benjamin Scellier</h1>
-                <p>benjamin dot scellier at polytechnique dot org</p>
+                <p class="tagline">I am a machine learning research scientist.</p>
+                <p class="email">benjamin dot scellier at polytechnique dot org</p>
+                <nav class="links">
+                    <a href="https://scholar.google.com/citations?user=GWyeAskAAAAJ&hl=en">Google Scholar</a>
+                    <a href="https://github.com/bscellier">GitHub</a>
+                </nav>
             </div>
             <div class="header-image">
-                <img src="./img.jpg" alt="Profile Picture" width="200" height="200">
+                <img src="./img.jpg" alt="Portrait of Benjamin Scellier" width="132" height="132">
             </div>
-        </div>
-        <div>
-            <p>I am a machine learning research scientist.</p>
-            <!--
-            <p>Before that, I was a resident at <a href="https://x.company/">Google X</a>, then a resident at Google Zurich, then a postdoctoral researcher at the Department of Mathematics of ETH Zurich, and then a principal research scientist at <a href="https://rain.ai/">Rain</a>.</p>
-            <p>I did a PhD in computer science at <a href="https://mila.quebec/en/">Mila</a> (University of Montreal) under the supervision of <a href="https://yoshuabengio.org/">Yoshua Bengio</a>.</p>
-            -->
-        </div>
-        <div align="center">
-            <a href="https://scholar.google.com/citations?user=GWyeAskAAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
-            <a href="https://github.com/bscellier"> GitHub </a>
-        </div>
-        <div class="about-section">
+        </header>
+        <!--
+        <p>Before that, I was a resident at <a href="https://x.company/">Google X</a>, then a resident at Google Zurich, then a postdoctoral researcher at the Department of Mathematics of ETH Zurich, and then a principal research scientist at <a href="https://rain.ai/">Rain</a>.</p>
+        <p>I did a PhD in computer science at <a href="https://mila.quebec/en/">Mila</a> (University of Montreal) under the supervision of <a href="https://yoshuabengio.org/">Yoshua Bengio</a>.</p>
+        -->
+        <section class="about-section">
             <h2>Research Interests</h2>
-            <p>My current research interests lie at the interface of machine learning (ML) and physics. I am more particularly interested in physics-based computation and physics-based learning.</p>
+            <p>My research interests lie at the interface of machine learning (ML) and physics. I am more particularly interested in physics-based computation and learning.</p>
             <p>Much of my current research revolves around <a href="https://www.frontiersin.org/articles/10.3389/fncom.2017.00024/full">equilibrium propagation</a> (EP), a learning framework grounded in physical principles. Unlike the more conventional ML framework based on automatic differentiation ("backpropagation"), EP performs inference and extracts gradient using the same physical laws, which makes it a potentially useful framework for the design of energy-efficient hardware for ML.</p>
             <!--
             Various neuromorphic platforms compatible with EP-training have been proposed, including <a href="https://arxiv.org/abs/2006.01981">nonlinear resistor networks</a>, <a href="https://arxiv.org/abs/2305.18321">Ising machines</a>, <a href="https://arxiv.org/abs/2402.08579">coupled phase oscillators</a>, as well as <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.11.021045">flow and elastic networks</a>.
             Experimental realizations of learning schemes closely related to EP have also been performed on resistor networks, memristor crossbars and elastic networks.
             -->
             <p>
-            For a very brief introduction to EP, see <a href="eqprop/eqprop.html">these notes</a>. (For a more detailed introduction to EP, Chapter 2 of my <a href="https://papyrus.bib.umontreal.ca/xmlui/handle/1866/25593">PhD thesis</a> may be relevant)
-            For EP-related code, <a href="https://github.com/rain-neuromorphics/energy-based-learning">click here</a>. If you are interested in EP, feel free to reach out.
+            For a very brief mathematical introduction to EP, see <a href="eqprop/eqprop.html">these notes</a>. (For a more detailed introduction to EP, Chapter 2 of my <a href="https://papyrus.bib.umontreal.ca/xmlui/handle/1866/25593">PhD thesis</a> may be relevant.)
+            For EP-related code, <a href="https://github.com/rain-neuromorphics/energy-based-learning">click here</a>. If you are interested in my research, feel free to reach out.
             </p>
-        </div>
-        <div class="news-section">
+        </section>
+        <section class="news-section">
             <h2>Recent Articles and Preprints</h2>
-              <!--
-              <li> Equilibrium propagation was featured in <a href="https://www.quantamagazine.org/how-to-make-the-universe-think-for-us-20220531/">Quanta Magazine</a>.</li>
-              -->
-              <li> <a href="https://www.nature.com/articles/s41586-025-09384-2">Training of physical neural networks</a> -  a review paper of training methods for physical systems.</li>
-              <li> <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/a52b0d191b619477cc798d544f4f0e4b-Abstract-Conference.html">Energy-based learning algorithms for analog computing: a comparative study</a> - this paper clarifies the differences between EP and other contrastive learning algorithms, and compares them in theory and in numerical experiments.</li>
-              <li> EP in nonlinear resistive networks: <a href="https://arxiv.org/abs/2006.01981">Training end-to-end analog neural networks with equilibrium propagation</a>, <a href="https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.23.044009">Universal approximation theorem for nonlinear resistive networks</a>, <a href="https://proceedings.mlr.press/v235/scellier24a.html">A fast algorithm to simulate nonlinear resistive networks</a>. </li>
-              <li> <a href="https://pubs.aip.org/aip/apq/article/3/2/026117/3397030/Quantum-equilibrium-propagation-Gradient-descent">Quantum equilibrium propagation: gradient-descent training of quantum systems</a> - a version of EP for quantum systems.</li>
-              <li> <a href="https://openreview.net/forum?id=Qrfml76eWJ">Training a convergent energy transformer with equilibrium propagation</a> - applying EP to transformer-like models.</li>
-              <li> <a href="https://arxiv.org/abs/2606.03584">Training a predictive coding network on ImageNet with equilibrium propagation</a> - scaling EP to full-size ImageNet classification.</li>
-              <li> <a href="https://arxiv.org/abs/2205.15021">Agnostic physics-driven deep learning</a> - this paper introduces Agnostic EP, a version of EP for black box systems in which the weights are updated directly via physical dynamics</li>
-        </div>
+            <!--
+            <li> Equilibrium propagation was featured in <a href="https://www.quantamagazine.org/how-to-make-the-universe-think-for-us-20220531/">Quanta Magazine</a>.</li>
+            -->
+            <ol class="pubs">
+                <li><a href="https://www.nature.com/articles/s41586-025-09384-2">Training of physical neural networks</a>
+                    <span class="note">A review paper of training methods for physical systems.</span></li>
+                <li><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/a52b0d191b619477cc798d544f4f0e4b-Abstract-Conference.html">Energy-based learning algorithms for analog computing: a comparative study</a>
+                    <span class="note">Clarifies the differences between EP and other contrastive learning algorithms, and compares them in theory and in numerical experiments.</span></li>
+                <li>EP in nonlinear resistive networks: <a href="https://arxiv.org/abs/2006.01981">Training end-to-end analog neural networks with equilibrium propagation</a>, <a href="https://journals.aps.org/prapplied/abstract/10.1103/PhysRevApplied.23.044009">Universal approximation theorem for nonlinear resistive networks</a>, <a href="https://proceedings.mlr.press/v235/scellier24a.html">A fast algorithm to simulate nonlinear resistive networks</a>.</li>
+                <li><a href="https://pubs.aip.org/aip/apq/article/3/2/026117/3397030/Quantum-equilibrium-propagation-Gradient-descent">Quantum equilibrium propagation: gradient-descent training of quantum systems</a>
+                    <span class="note">A version of EP for quantum systems.</span></li>
+                <li><a href="https://openreview.net/forum?id=Qrfml76eWJ">Training a convergent energy transformer with equilibrium propagation</a>
+                    <span class="note">Applying EP to transformer-like models.</span></li>
+                <li><a href="https://arxiv.org/abs/2606.03584">Training a predictive coding network on ImageNet with equilibrium propagation</a>
+                    <span class="note">Scaling EP to full-size ImageNet classification.</span></li>
+                <li><a href="https://arxiv.org/abs/2205.15021">Agnostic physics-driven deep learning</a>
+                    <span class="note">Introduces Agnostic EP, a version of EP for black box systems in which the weights are updated directly via physical dynamics.</span></li>
+            </ol>
+        </section>
         <!--
-        <div>
+        <section>
             <h2>Invited Talks</h2>
             <li>January 2024. <a href="https://mcmahon.aep.cornell.edu/aspen/2024/">Aspen Winter Conference "Computing with Physical Systems"</a> . Invited speaker.</li>
             <li>September 2023. Max Planck Institute for the Science of Light. Frontiers of Neuromorphic Computing Workshop. Invited speaker.</li>
             <li>March 2023. APS March Meeting. Session on "Learning in physical systems without neurons". Invited speaker.</li>
             <li>May 2021. ICLR Workshop on "Energy-based models". Invited speaker.</li>
             <li>August 2020. Neuromorphic Workshop Telluride. Invited speaker.</li>
-        </div>
+        </section>
         -->
-    </div>
+    </main>
 </body>
 </html>
